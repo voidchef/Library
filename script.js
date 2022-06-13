@@ -139,6 +139,8 @@ function popUp(openForm) {
 
 addBook.addEventListener("click", () => popUp(true));
 
+cancelBtn.addEventListener("click", () => popUp(false));
+
 if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
 else {
   myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
