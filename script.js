@@ -156,6 +156,25 @@ cancelBtn.addEventListener("click", () => popUp(false));
 
 clearBtn.addEventListener("click", () => clearForm());
 
+function isRead() {
+  if (document.getElementById("read").checked)
+    return document.getElementById("read").value;
+  else if (document.getElementById("notRead").checked)
+    return document.getElementById("notRead").value;
+}
+
+function getInput() {
+  const id = Math.random() * (100 - 1 + 1) + 1;
+  const title = document.querySelector("#bookTitle").value;
+  const author = document.querySelector("#bookAuthor").value;
+  const pages = document.querySelector("#bookPages").value;
+  const status = isRead();
+
+  const newBook = new BOOK(id, title, author, pages, status);
+
+  return newBook;
+}
+
 if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
 else {
   myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
