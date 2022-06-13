@@ -45,14 +45,14 @@
       <div class="sorting">
         <label for="sortBy">Sort By:</label>
         <select name="sortBy" class="sortBy">
-          <option value="title">Title</option>
+          <option value="title" selected>Title</option>
           <option value="author">Author</option>
           <option value="pages">Pages</option>
         </select>
 
         <label for="orderBy"></label>
         <select name="orderBy" class="orderBy">
-          <option value="Ascending">Ascending</option>
+          <option value="Ascending" selected>Ascending</option>
           <option value="Descending">Descending</option>
         </select>
       </div>
@@ -75,6 +75,72 @@
 
     <div class="footer">
       <button type="button" class="addBookBtn">+</button>
+    </div>
+
+    <div class="formContainer">
+      <form>
+        <h1 class="formContainerText">ADD A NEW BOOK</h1>
+        <button type="button" class="cancel"><strong>X</strong></button>
+
+        <div class="formElements">
+          <div class="title">
+            <label for="bookTitle">Book Title*</label><br />
+            <input
+              id="bookTitle"
+              type="text"
+              placeholder="Title"
+              name="bookTitle"
+            />
+          </div>
+
+          <div class="author">
+            <label for="bookAuthor">Book Author*</label><br />
+            <input
+              id="bookAuthor"
+              type="text"
+              placeholder="Author"
+              name="bookAuthor"
+            />
+          </div>
+
+          <div class="pages">
+            <label for="bookPages*">Number of Pages*</label><br />
+            <input
+              id="bookPages"
+              type="text"
+              placeholder="Pages"
+              name="bookPages"
+            />
+          </div>
+
+          <div class="status">
+            Status*<br />
+            <label for="read">
+              <input id="read" type="radio" name="bookStatus" value="READ" />
+              Read </label
+            ><br />
+            <label for="notRead">
+              <input
+                id="notRead"
+                type="radio"
+                name="bookStatus"
+                value="NOT READ"
+                checked
+              />
+              Not Read
+            </label>
+          </div>
+        </div>
+
+        <div class="error">
+          <p class="errMsg">*fields are mandatory</p>
+        </div>
+
+        <div class="boxBtn">
+          <button type="button" class="submit formBtn">Add Book</button>
+          <button type="button" class="clear formBtn">Clear</button>
+        </div>
+      </form>
     </div>
 
     <script src="script.js"></script>

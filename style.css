@@ -3,6 +3,20 @@
     sans-serif;
 }
 
+button {
+  background-color: #e41f67;
+  color: #f2f2f2;
+  outline: none;
+  transition: transform ease 300ms;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+button:hover {
+  transform: translate(0, -10px);
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -107,4 +121,76 @@ td {
   color: white;
   text-align: center;
   font: 2em Arial, sans-serif;
+}
+
+.formContainer {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 68vh;
+  width: 400px;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  background: white;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+
+.cancel {
+  position: absolute;
+  top: 05px;
+  right: 0px;
+  font-size: 1.2em;
+  color: black;
+  background: transparent;
+}
+
+h1 {
+  text-align: center;
+}
+
+.formElements {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+}
+
+input {
+  margin: 0px;
+  padding: 0px;
+  height: 3.5vh;
+  width: 100%;
+}
+
+#read,
+#notRead {
+  height: 2vh;
+  width: 2vw;
+}
+
+.errMsg {
+  font-size: 1em;
+  color: red;
+  text-align: center;
+  padding: 0.8em;
+  border: 2px solid red;
+}
+
+.boxBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.formBtn {
+  width: 130px;
+  height: 6vh;
+  border-radius: 4px;
 }

@@ -133,7 +133,8 @@ function displayLibrary() {
 }
 
 function popUp(openForm) {
-  /* to be implemented */
+  if (openForm) document.querySelector(".formContainer").style.display = "flex";
+  else document.querySelector(".formContainer").style.display = "none";
 }
 
 addBook.addEventListener("click", () => popUp(true));
