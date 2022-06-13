@@ -1,3 +1,5 @@
+let myLibrary = [];
+
 class BOOK {
   constructor(id, title, author, pages, status) {
     this.id = id;
@@ -10,4 +12,60 @@ class BOOK {
   toggleStatus(readStatus) {
     this.status = readStatus;
   }
+}
+
+function displayLibrary() {
+  myLibrary.forEach((book, indexCount) => {
+    const row = document.createElement("tr");
+
+    const title = document.createElement("td");
+    title.textContent = book.title;
+
+    const author = document.createElement("td");
+    author.textContent = book.author;
+
+    const pages = document.createElement("td");
+    pages.textContent = book.pages;
+
+    const status = document.createElement("td");
+    const statusBtn = document.createElement("button");
+    statusBtn.type = "button";
+    statusBtn.classList.add("toggleStatus");
+    statusBtn.textContent = book.status;
+    status.append(statusBtn);
+
+    statusBtn.addEventListener("click", () => {
+      if (book.status === "READ") {
+        book.toggleStatus("NOT READ");
+        statusBtn.textContent = "NOT READ";
+      } else {
+        book.toggleStatus("READ");
+        statusBtn.textContent = "READ";
+      }
+
+      localStorage.clear();
+      localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+    });
+
+    const deleteBook = document.createElement("td");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.type = "button";
+    deleteBtn.setAttribute("data-index", indexCount++);
+    deleteBtn.classList.add("deleteBook");
+    deleteBtn.textContent = "DELETE";
+    deleteBook.append(deleteBtn);
+
+    deleteBtn.addEventListener("click", () => {
+      myLibrary.splice(deleteBtn.dataset.index, 1);
+      localStorage.clear();
+
+      if (myLibrary.length !== 0)
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+
+      displayLibrary();
+    });
+
+    row.append(title, author, pages, status, deleteBook);
+    tbody.append(row);
+  });
 }

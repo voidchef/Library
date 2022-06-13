@@ -83,3 +83,10 @@ td {
   border-collapse: collapse;
   border-bottom: 1px solid #e1e1e1;
 }
+
+.toggleStatus,
+.deleteBook {
+  min-width: 9vw;
+  min-height: 6vh;
+  border-radius: 4px;
+}
