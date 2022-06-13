@@ -66,3 +66,20 @@ header {
   right: 0px;
   background-color: #f2f2f2;
 }
+
+.library {
+  width: 84vw;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+.books,
+th,
+td {
+  width: 84vw;
+  text-align: left;
+  padding: 1vw;
+  border-collapse: collapse;
+  border-bottom: 1px solid #e1e1e1;
+}
