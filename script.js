@@ -5,6 +5,7 @@ const sortBy = document.querySelector(".sortBy");
 const orderBy = document.querySelector(".orderBy");
 const table = document.querySelector(".books");
 const tbody = document.querySelector("tbody");
+const addBook = document.querySelector(".addBookBtn");
 
 let myLibrary = [];
 
@@ -130,6 +131,12 @@ function displayLibrary() {
     tbody.append(row);
   });
 }
+
+function popUp(openForm) {
+  /* to be implemented */
+}
+
+addBook.addEventListener("click", () => popUp(true));
 
 if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
 else {

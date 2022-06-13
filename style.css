@@ -90,3 +90,21 @@ td {
   min-height: 6vh;
   border-radius: 4px;
 }
+
+.footer {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vh;
+}
+
+.addBookBtn {
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  padding: 10px;
+  background: #2196f3;
+  border-color: transparent;
+  color: white;
+  text-align: center;
+  font: 2em Arial, sans-serif;
+}
