@@ -1,8 +1,9 @@
-const table = document.querySelector(".books");
-const tbody = document.querySelector("tbody");
 const bookCount = document.querySelector(".bookCount");
 const totalRead = document.querySelector(".totalRead");
 const totalNotRead = document.querySelector(".totalNotRead");
+const sortBy = document.querySelector(".sortBy");
+const table = document.querySelector(".books");
+const tbody = document.querySelector("tbody");
 
 let myLibrary = [];
 
@@ -19,6 +20,22 @@ class BOOK {
     this.status = readStatus;
   }
 }
+
+function sortLibrary() {
+  myLibrary.sort((a, b) => {
+    let first, second;
+    if (sortBy.value === "pages") {
+      first = Number(a[sortBy.value]);
+      second = Number(b[sortBy.value]);
+    } else {
+      first = a[sortBy.value].toUpperCase();
+      second = b[sortBy.value].toUpperCase();
+    }
+    return first == second ? 0 : first > second ? 1 : -1;
+  });
+}
+
+sortBy.addEventListener("change", () => displayLibrary());
 
 function resetTable() {
   let rowCount = table.rows.length;
@@ -45,6 +62,9 @@ function displayLog() {
 }
 
 function displayLibrary() {
+  sortLibrary();
+  resetTable();
+
   myLibrary.forEach((book, indexCount) => {
     const row = document.createElement("tr");
 
@@ -110,5 +130,4 @@ else {
 }
 
 displayLibrary();
-
 displayLog();
