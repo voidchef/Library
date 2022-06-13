@@ -6,6 +6,8 @@ const orderBy = document.querySelector(".orderBy");
 const table = document.querySelector(".books");
 const tbody = document.querySelector("tbody");
 const addBook = document.querySelector(".addBookBtn");
+const cancelBtn = document.querySelector(".cancel");
+const clearBtn = document.querySelector(".clear");
 
 let myLibrary = [];
 
@@ -137,9 +139,19 @@ function popUp(openForm) {
   else document.querySelector(".formContainer").style.display = "none";
 }
 
+function clearForm() {
+  document.querySelector("#bookTitle").value = "";
+  document.querySelector("#bookAuthor").value = "";
+  document.querySelector("#bookPages").value = "";
+  errMsg.textContent = "*fields are mandatory";
+  document.getElementById("notRead").checked = true;
+}
+
 addBook.addEventListener("click", () => popUp(true));
 
 cancelBtn.addEventListener("click", () => popUp(false));
+
+clearBtn.addEventListener("click", () => clearForm());
 
 if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
 else {
