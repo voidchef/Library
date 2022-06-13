@@ -5,8 +5,11 @@ const sortBy = document.querySelector(".sortBy");
 const orderBy = document.querySelector(".orderBy");
 const table = document.querySelector(".books");
 const tbody = document.querySelector("tbody");
+const deleteBtn = document.querySelectorAll(".deleteBook");
+const statusBtn = document.querySelectorAll(".toggleStatus");
 const addBook = document.querySelector(".addBookBtn");
 const cancelBtn = document.querySelector(".cancel");
+const errMsg = document.querySelector(".errMsg");
 const clearBtn = document.querySelector(".clear");
 
 let myLibrary = [];
