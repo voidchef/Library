@@ -53,3 +53,16 @@ header {
   line-height: 5px;
   font-size: 1.2rem;
 }
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 84vw;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  background-color: #f2f2f2;
+}
