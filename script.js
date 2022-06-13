@@ -11,6 +11,7 @@ const addBook = document.querySelector(".addBookBtn");
 const cancelBtn = document.querySelector(".cancel");
 const errMsg = document.querySelector(".errMsg");
 const clearBtn = document.querySelector(".clear");
+const submitBtn = document.querySelector(".submit");
 
 let myLibrary = [];
 
@@ -156,23 +157,6 @@ cancelBtn.addEventListener("click", () => popUp(false));
 
 clearBtn.addEventListener("click", () => clearForm());
 
-function validateInput(book) {
-  let valid = true;
-
-  if (!book.title.length) {
-    errMsg.textContent = "Book Title is empty";
-    valid = false;
-  } else if (!book.author.length) {
-    errMsg.textContent = "Book Author is empty";
-    valid = false;
-  } else if (!book.pages.length) {
-    errMsg.textContent = "Book Pages is empty";
-    valid = false;
-  }
-
-  return valid;
-}
-
 function isRead() {
   if (document.getElementById("read").checked)
     return document.getElementById("read").value;
@@ -191,6 +175,52 @@ function getInput() {
 
   return newBook;
 }
+
+function validateInput(book) {
+  let valid = true;
+
+  if (!book.title.length) {
+    errMsg.textContent = "Book Title is empty";
+    valid = false;
+  } else if (!book.author.length) {
+    errMsg.textContent = "Book Author is empty";
+    valid = false;
+  } else if (!book.pages.length) {
+    errMsg.textContent = "Book Pages is empty";
+    valid = false;
+  }
+
+  return valid;
+}
+
+function addBookToLibrary(newBook) {
+  if (myLibrary.some((book) => book.title == newBook.title)) return false;
+  else {
+    myLibrary.push(newBook);
+    return true;
+  }
+}
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let book = getInput();
+
+  if (validateInput(book)) {
+    if (addBookToLibrary(book)) {
+      localStorage.clear();
+      localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+
+      popUp(false);
+      clearForm();
+      displayLibrary();
+      displayLog();
+    } else {
+      errMsg.textContent =
+        "A book with this title already exists in the library";
+    }
+  }
+});
 
 if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
 else {
