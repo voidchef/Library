@@ -156,6 +156,23 @@ cancelBtn.addEventListener("click", () => popUp(false));
 
 clearBtn.addEventListener("click", () => clearForm());
 
+function validateInput(book) {
+  let valid = true;
+
+  if (!book.title.length) {
+    errMsg.textContent = "Book Title is empty";
+    valid = false;
+  } else if (!book.author.length) {
+    errMsg.textContent = "Book Author is empty";
+    valid = false;
+  } else if (!book.pages.length) {
+    errMsg.textContent = "Book Pages is empty";
+    valid = false;
+  }
+
+  return valid;
+}
+
 function isRead() {
   if (document.getElementById("read").checked)
     return document.getElementById("read").value;
