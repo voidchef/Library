@@ -29,6 +29,14 @@ class BOOK {
   }
 }
 
+const defaultBook = new BOOK(
+  "0",
+  "Alice in Wonderland",
+  "Lewis Carroll",
+  "200",
+  "NOT READ"
+);
+
 function sortLibrary() {
   myLibrary.sort((a, b) => {
     let first, second;
