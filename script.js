@@ -1,3 +1,4 @@
+const table = document.querySelector(".books");
 const tbody = document.querySelector("tbody");
 const bookCount = document.querySelector(".bookCount");
 const totalRead = document.querySelector(".totalRead");
@@ -16,6 +17,14 @@ class BOOK {
 
   toggleStatus(readStatus) {
     this.status = readStatus;
+  }
+}
+
+function resetTable() {
+  let rowCount = table.rows.length;
+
+  for (let x = rowCount - 1; x > 0; x--) {
+    table.deleteRow(x);
   }
 }
 
