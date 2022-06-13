@@ -1,0 +1,29 @@
+* {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 84vw;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.headingIcon {
+  height: 70px;
+  width: 70px;
+}
+
+.headingText {
+  font-size: 40px;
+}
