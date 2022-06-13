@@ -2,6 +2,7 @@ const bookCount = document.querySelector(".bookCount");
 const totalRead = document.querySelector(".totalRead");
 const totalNotRead = document.querySelector(".totalNotRead");
 const sortBy = document.querySelector(".sortBy");
+const orderBy = document.querySelector(".orderBy");
 const table = document.querySelector(".books");
 const tbody = document.querySelector("tbody");
 
@@ -35,7 +36,13 @@ function sortLibrary() {
   });
 }
 
+function orderLibrary() {
+  if (orderBy.value === "Descending") myLibrary.reverse();
+}
+
 sortBy.addEventListener("change", () => displayLibrary());
+
+orderBy.addEventListener("change", () => displayLibrary());
 
 function resetTable() {
   let rowCount = table.rows.length;
@@ -63,6 +70,7 @@ function displayLog() {
 
 function displayLibrary() {
   sortLibrary();
+  orderLibrary();
   resetTable();
 
   myLibrary.forEach((book, indexCount) => {
