@@ -1,3 +1,8 @@
+const tbody = document.querySelector("tbody");
+const bookCount = document.querySelector(".bookCount");
+const totalRead = document.querySelector(".totalRead");
+const totalNotRead = document.querySelector(".totalNotRead");
+
 let myLibrary = [];
 
 class BOOK {
@@ -12,6 +17,22 @@ class BOOK {
   toggleStatus(readStatus) {
     this.status = readStatus;
   }
+}
+
+function count(status) {
+  let count = 0;
+
+  myLibrary.forEach((book) => {
+    if (book.status === status) count++;
+  });
+
+  return count;
+}
+
+function displayLog() {
+  bookCount.innerHTML = myLibrary.length;
+  totalRead.innerHTML = count("READ");
+  totalNotRead.innerHTML = count("NOT READ");
 }
 
 function displayLibrary() {
@@ -45,6 +66,8 @@ function displayLibrary() {
 
       localStorage.clear();
       localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+
+      displayLog();
     });
 
     const deleteBook = document.createElement("td");
@@ -63,6 +86,7 @@ function displayLibrary() {
         localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 
       displayLibrary();
+      displayLog();
     });
 
     row.append(title, author, pages, status, deleteBook);
