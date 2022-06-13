@@ -102,3 +102,13 @@ function displayLibrary() {
     tbody.append(row);
   });
 }
+
+if (!localStorage.getItem("myLibrary")) myLibrary.push(defaultBook);
+else {
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+  myLibrary.forEach((book) => (book.__proto__ = new BOOK()));
+}
+
+displayLibrary();
+
+displayLog();
