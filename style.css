@@ -31,3 +31,25 @@ header {
 .projectInfo {
   font-size: 20px;
 }
+
+.containerTwo {
+  display: flex;
+  align-items: center;
+}
+
+.logContainer {
+  min-width: 250px;
+  border: 2px solid #1b7dec;
+  color: #1b7dec;
+}
+
+.logHeading {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.log {
+  margin: 1rem;
+  line-height: 5px;
+  font-size: 1.2rem;
+}
