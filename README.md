@@ -6,6 +6,8 @@ Project to create a Virtual Library using only HTML, CSS and Vanilla JS.
 
 [Library](https://voidchef.github.io/library/)
 
+![library](https://user-images.githubusercontent.com/79092620/173862260-86d67230-b577-42af-ab4c-258463e425dc.png)
+
 **Note:** This Website works best with High Resolution Screens (1080p and up). Check the [improvements section](#improvements) for future updates.
 
 ## Built with
